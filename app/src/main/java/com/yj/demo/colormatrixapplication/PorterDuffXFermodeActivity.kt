@@ -3,6 +3,7 @@ package com.yj.demo.colormatrixapplication
 import android.graphics.*
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.DecelerateInterpolator
 import kotlinx.android.synthetic.main.activity_porter_duff_xfermode.*
 
 class PorterDuffXFermodeActivity : AppCompatActivity() {
@@ -19,6 +20,12 @@ class PorterDuffXFermodeActivity : AppCompatActivity() {
         canvas.drawBitmap(bitmap,0f,0f,paint)
         tv_1.setOnClickListener {
             imageView.setImageBitmap(bitmap1)
+            tv_1.animate()
+                    .alpha(0.5f)
+                    .translationX(100f)
+                    .setDuration(2000)
+                    .setInterpolator(DecelerateInterpolator())
+                    .start()
         }
 
     }
